@@ -17,7 +17,7 @@ class TestCoffeeShop(unittest.TestCase):
         
         self.coffee_shop = CoffeeShop("The Prancing Pony", 100.00, drinks)
         
-        self.customer = Customer("John Snow", 50, 30, 3)
+        self.customer = Customer("John Snow", 50, 30, 2)
     
     def test_has_name(self):
         self.assertEqual("The Prancing Pony", self.coffee_shop.name)
@@ -54,17 +54,11 @@ class TestCoffeeShop(unittest.TestCase):
         self.customer_2 = Customer("Jane Doe", 40, 14, 2)
         self.coffee_shop.check_age(self.customer_2.age)
         self.assertEqual(False, self.customer_2.age > 16)
-    
-
-
-    # def test_check_age_of_customer__False(self):
-    #     self.customer_2 = Customer("John Doe", 40, 14)
-    #     self.coffee_shop.check_age_of_customer(self.customer_2.age)
-    #     self.assertEqual(False, self.customer.age)
 
     def test_sell_drink_to_customer__1(self):
         self.coffee_shop.sell_drink_to_customer(self.drink_3, self.customer)
         self.assertEqual(30, self.customer.age)
+        self.assertEqual(2, self.customer.energy_level)
         self.assertEqual(2, len(self.coffee_shop.drinks))
         self.assertEqual(115.00, self.coffee_shop.till)
         self.assertEqual(35, self.customer.wallet)
@@ -77,4 +71,9 @@ class TestCoffeeShop(unittest.TestCase):
         self.assertEqual(3, len(self.coffee_shop.drinks))
         self.assertEqual(100.00, self.coffee_shop.till)
         self.assertEqual(40, self.customer_3.wallet)
+
+    def test_checking_energy_level(self): 
+        self.customer_4 = Customer("John Bob", 50, 30, 3)
+        service = self.coffee_shop.check_energy_level(self.customer_4.energy_level) 
+        self.assertEqual(3, service)
 

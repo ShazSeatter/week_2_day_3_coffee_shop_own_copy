@@ -26,11 +26,15 @@ class CoffeeShop:
 
     def sell_drink_to_customer(self, drink, customer):
         found_drink = self.find_drink(drink.name)
-        if found_drink == drink and self.check_age(customer.age):
+        if found_drink == drink and self.check_age(customer.age) and self.check_energy_level(customer.energy_level):
             self.remove_drink(drink)
             self.increase_till(drink.price)
             customer.reduce_wallet_amount(drink.price)
         else:
             return None
-\
 
+    def check_energy_level(self, energy_level):
+        if energy_level < 5:
+            return energy_level
+        else:
+            return None
