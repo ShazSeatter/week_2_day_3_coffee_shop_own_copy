@@ -8,16 +8,16 @@ from src.drinks import Drinks
 class TestCoffeeShop(unittest.TestCase):
     def setUp(self):
 
-        self.drink_1 = Drinks("Hot Chocolate", 20)
-        self.drink_2 = Drinks("Espresso", 10)
-        self.drink_3 = Drinks("Latte", 15)
+        self.drink_1 = Drinks("Hot Chocolate", 20, 1)
+        self.drink_2 = Drinks("Espresso", 10, 3)
+        self.drink_3 = Drinks("Latte", 15, 2)
 
         drinks = [self.drink_1, self.drink_2, self.drink_3]
 
         
         self.coffee_shop = CoffeeShop("The Prancing Pony", 100.00, drinks)
         
-        self.customer = Customer("John Snow", 50, 30)
+        self.customer = Customer("John Snow", 50, 30, 3)
     
     def test_has_name(self):
         self.assertEqual("The Prancing Pony", self.coffee_shop.name)
@@ -51,7 +51,7 @@ class TestCoffeeShop(unittest.TestCase):
 
 
     def test_check_age_of_customer__False(self):
-        self.customer_2 = Customer("Jane Doe", 40, 14)
+        self.customer_2 = Customer("Jane Doe", 40, 14, 2)
         self.coffee_shop.check_age(self.customer_2.age)
         self.assertEqual(False, self.customer_2.age > 16)
     
@@ -71,7 +71,7 @@ class TestCoffeeShop(unittest.TestCase):
        
 
     def test_sell_drink_to_customer__2(self):
-        self.customer_3 = Customer("Jane Smith", 40, 14)
+        self.customer_3 = Customer("Jane Smith", 40, 14, 2)
         self.assertEqual(None, self.coffee_shop.sell_drink_to_customer(self.drink_3, self.customer_3))
         self.assertEqual(14, self.customer_3.age)
         self.assertEqual(3, len(self.coffee_shop.drinks))
