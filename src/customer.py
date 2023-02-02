@@ -11,5 +11,7 @@ class Customer:
         self.wallet -= amount 
 
 
+    # def can_buy_drink(self, drink):
+    
     def change_energy_level(self, caffeine_level):
         self.energy_level += caffeine_level
