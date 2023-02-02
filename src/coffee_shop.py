@@ -35,6 +35,6 @@ class CoffeeShop:
 
     def check_energy_level(self, energy_level):
         if energy_level < 5:
-            return energy_level
+            return True
         else:
-            return None
+            return False

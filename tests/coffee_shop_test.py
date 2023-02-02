@@ -75,5 +75,5 @@ class TestCoffeeShop(unittest.TestCase):
     def test_checking_energy_level(self): 
         self.customer_4 = Customer("John Bob", 50, 30, 3)
         service = self.coffee_shop.check_energy_level(self.customer_4.energy_level) 
-        self.assertEqual(3, service)
+        self.assertEqual(True, service)
 
