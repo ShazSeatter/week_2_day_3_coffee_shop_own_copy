@@ -11,10 +11,10 @@ class TestCoffeeShop(unittest.TestCase):
         self.drink_1 = Drinks("Hot Chocolate", 20, 1)
         self.drink_2 = Drinks("Espresso", 10, 3)
         self.drink_3 = Drinks("Latte", 15, 2)
-
+ 
         drinks = [self.drink_1, self.drink_2, self.drink_3]
 
-        
+
         self.coffee_shop = CoffeeShop("The Prancing Pony", 100.00, drinks)
         
         self.customer = Customer("John Snow", 50, 30, 2)
@@ -62,7 +62,7 @@ class TestCoffeeShop(unittest.TestCase):
         self.assertEqual(2, len(self.coffee_shop.drinks))
         self.assertEqual(115.00, self.coffee_shop.till)
         self.assertEqual(35, self.customer.wallet)
-       
+
 
     def test_sell_drink_to_customer__2(self):
         self.customer_3 = Customer("Jane Smith", 40, 14, 2)
